@@ -1,4 +1,4 @@
-package com.dsa;
+package com.dsa.sort;
 
 // Java program for implementation of Selection Sort
 public class SelectionSort {

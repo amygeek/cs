@@ -1,4 +1,4 @@
-package com.dsa;// This program implements the merge sort algorithm for
+package com.dsa.sort;// This program implements the merge sort algorithm for
 // arrays of integers.
 
 import java.util.Arrays;

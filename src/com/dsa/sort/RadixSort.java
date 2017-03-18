@@ -1,4 +1,4 @@
-package com.dsa;// Radix sort Java implementation
+package com.dsa.sort;// Radix sort Java implementation
 
 import java.util.Arrays;
 

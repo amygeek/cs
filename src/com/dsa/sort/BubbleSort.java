@@ -1,4 +1,4 @@
-package com.dsa;// Java program for implementation of Bubble Sort
+package com.dsa.sort;// Java program for implementation of Bubble Sort
 
 import java.util.Arrays;
 
