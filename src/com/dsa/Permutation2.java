@@ -1,4 +1,5 @@
 package com.dsa;
+
 public class Permutation2 {
 
     // print n! permutation of the characters of the string s (in order)
@@ -14,9 +15,7 @@ public class Permutation2 {
             for (int i = 0; i < n; i++) {
                 perm1(prefix + s.charAt(i), s.substring(0, i) + s.substring(i+1));
             }
-
         }
-
     }
 
     // print n! permutation of the elements of array a (not in order)
@@ -25,18 +24,18 @@ public class Permutation2 {
         char[] a = new char[n];
         for (int i = 0; i < n; i++)
             a[i] = s.charAt(i);
-        perm2(a, n);
+        perm2(a, 0, n-1);
     }
 
-    private static void perm2(char[] a, int n) {
-        if (n == 1) {
+    private static void perm2(char[] a, int start, int end) {
+        if (start == end) {
             System.out.println(a);
             return;
         }
-        for (int i = 0; i < n; i++) {
-            swap(a, i, n-1);
-            perm2(a, n-1);
-            swap(a, i, n-1);
+        for (int i = start; i <= end; i++) {
+            swap(a, start, i);
+            perm2(a, start + 1, end);
+            swap(a, start, i);
         }
     }
 
@@ -49,8 +48,8 @@ public class Permutation2 {
 
     public static void main(String[] args) {
 
-        //perm1("abc");
+        perm1("abc");
         System.out.println();
-        perm2("man");
+        perm2("amy");
     }
 }
