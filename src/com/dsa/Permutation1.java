@@ -3,7 +3,7 @@ package com.dsa;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringPermutation {
+public class Permutation1 {
     /**
      * @param args
      */
