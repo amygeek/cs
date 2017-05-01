@@ -71,16 +71,16 @@ class LinkedList {
         LinkedList list = new LinkedList();
         list.head = new Node(7);
         list.head.next = new Node(14);
-        list.head.next.next = new Node(21);
-        list.head.next.next.next = new Node(28);
+//        list.head.next.next = new Node(21);
+//        list.head.next.next.next = new Node(28);
 
         System.out.println("Given Linked list");
         list.printList(head);
 
-        head = list.reverseIterative(head);
-        System.out.println("");
-        System.out.println("Reversed linked list Iterative");
-        list.printList(head);
+//        head = list.reverseIterative(head);
+//        System.out.println("");
+//        System.out.println("Reversed linked list Iterative");
+//        list.printList(head);
 
         head = list.reverseRecursive(head);
         System.out.println("");
