@@ -1,4 +1,4 @@
-package com.dsa;
+package com.dsa.linkedlist;
 
 class LinkedList {
 
@@ -67,6 +67,17 @@ class LinkedList {
         }
     }
 
+    // prints content of double linked list
+    void printListReverse(Node node) {
+
+        if ( node == null ) {
+            return;
+        }
+
+        printListReverse(node.next);
+        System.out.print(node.data + " ");
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         list.head = new Node(7);
@@ -83,8 +94,12 @@ class LinkedList {
 //        list.printList(head);
 
         head = list.reverseRecursive(head);
-        System.out.println("");
+
         System.out.println("Reversed linked list Recursively ");
         list.printList(head);
+
+        System.out.println("");
+        System.out.println("Print Linked List reversely");
+        list.printListReverse(head);
     }
 }

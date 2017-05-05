@@ -18,9 +18,9 @@ public class InsertionSort {
         }
     }
     public static void main(String[] args) {
-        int[] list = {100, 32, 67, 76, 23, 200, 58, 95};
+        int[] list = {6,4,8,1,3};
         System.out.println("before: " + Arrays.toString(list));
-        insertionSort(list, 8);
+        insertionSort(list, 5);
         System.out.println("after:  " + Arrays.toString(list));
     }
 }

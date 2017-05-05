@@ -1,12 +1,15 @@
 package com.dsa;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
-/** * Java Program to find first duplicate, non-repeated character in a String.
- * * It demonstrate three simple example to do this programming problem.
- * * * @author Javarevisited
- * */
+
 public class FirstUniqueChar {
     /*
      * Using LinkedHashMap to find first non repeated character of String
