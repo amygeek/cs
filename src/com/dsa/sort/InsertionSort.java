@@ -6,19 +6,19 @@ public class InsertionSort {
 
     public static void insertionSort (int[] a, int n) {
 
-        int value, idx;
-        for (int i = 1; i < n; i++) {
-            value = a[i];
-            idx = i;
-            while( idx > 0 && a[idx-1] > value) {
-                a[idx] = a[idx-1];
-                idx--;
+        int value, i;
+        for (int j = 1; j < n; j++) {
+            value = a[j];
+            i = j;
+            while( i > 0 && a[i-1] > value) {
+                a[i] = a[i-1];
+                i--;
             }
-            a[idx] = value;
+            a[i] = value;
         }
     }
     public static void main(String[] args) {
-        int[] list = {100, 32, 67, 76, 23, 200, 58, 85};
+        int[] list = {100, 32, 67, 76, 23, 200, 58, 95};
         System.out.println("before: " + Arrays.toString(list));
         insertionSort(list, 8);
         System.out.println("after:  " + Arrays.toString(list));
