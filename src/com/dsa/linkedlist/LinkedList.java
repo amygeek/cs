@@ -4,17 +4,6 @@ class LinkedList {
 
     static Node head;
 
-    static class Node {
-
-        int data;
-        Node next;
-
-        Node(int d) {
-            data = d;
-            next = null;
-        }
-    }
-
     /* Function to reverse the linked list */
     public Node reverseIterative(Node head) {
 

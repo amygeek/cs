@@ -104,8 +104,19 @@ public class InorderSuccessor  {
         if(successor == null) {
             System.out.println("No successor Found");
         } else {
-            System.out.println("Successor is "  + successor.data);
+            System.out.println(4 + " -> "  + successor.data);
         }
+
+//        successor = getSuccessor(root, 3);
+//        System.out.println(3 + " -> "  + successor.data);
+//        successor = getSuccessor(root, 4);
+//        System.out.println(4 + " -> "  + successor.data);
+//        successor = getSuccessor(root, 5);
+//        System.out.println(5 + " -> "  + successor.data);
+//        successor = getSuccessor(root, 10);
+//        System.out.println(10 + " -> "  + successor.data);
+
+
 
     }
 

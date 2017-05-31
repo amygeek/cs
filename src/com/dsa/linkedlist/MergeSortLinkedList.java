@@ -1,13 +1,7 @@
-public class MergeSortLinkedList {
-    static class Node {
-        public int data;
-        public Node next;
+package com.dsa.linkedlist;
 
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
+public class MergeSortLinkedList {
+
 
     public Node MergeList(Node a, Node b) {
         Node result = null;
@@ -59,9 +53,11 @@ public class MergeSortLinkedList {
     public void display(Node head) {
         Node currNode = head;
         while (currNode != null) {
-            System.out.print("->" + currNode.data);
+            System.out.print(currNode.data + "->");
             currNode = currNode.next;
         }
+
+        System.out.print("null");
     }
 
     public static void main(String args[]) {
@@ -77,7 +73,5 @@ public class MergeSortLinkedList {
         System.out.println("\n Sorted List: ");
         m.display(x);
     }
-
-
 }
 
