@@ -17,6 +17,11 @@ class DoublyLinkedList {
 
     /* Function to reverse a Doubly Linked List */
     void reverse() {
+
+        if (head == null || head.next == null) {
+            return;
+        }
+
         Node temp = null;
         Node current = head;
 
@@ -34,6 +39,20 @@ class DoublyLinkedList {
         if (temp != null) {
             head = temp.prev;
         }
+    }
+
+    public static Node reverseRecursive(Node head) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Node newHead = reverseRecursive(head.next);
+        head.next.next = head;
+        head.prev = head.next;
+        head.next = null;
+
+        return newHead;
     }
 
     /* Function to insert a node at the beginning of the Doubly Linked List */
@@ -75,11 +94,14 @@ class DoublyLinkedList {
         list.insert(4);
         list.insert(8);
         list.insert(10);
+        list.insert(11);
+
 
         System.out.println("Original linked list ");
         list.printList(head);
 
         list.reverse();
+        //head = list.reverseRecursive(head);
         System.out.println("");
         System.out.println("The reversed Linked List is ");
         list.printList(head);
