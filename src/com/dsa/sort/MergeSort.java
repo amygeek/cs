@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] list = {300, 32, 67, 76, 23, 200, 58, 85};
+        int[] list = {6,4,8,1,3,5,7};
         System.out.println("before: " + Arrays.toString(list));
         sortIterative(list, 0, list.length - 1 );
         System.out.println("after:  " + Arrays.toString(list));

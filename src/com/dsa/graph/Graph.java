@@ -13,7 +13,7 @@ public class Graph {
 
     public Graph() {
         vertexList = new Vertex[MAX_VERTS];
-        adjMat = new[MAX_VERTS][MAX_VERTS];
+        adjMat = new int [MAX_VERTS][MAX_VERTS];
         nVerts = 0;
         for(int i=0; i<MAX_VERTS; i++) {
             for(int j=0; j<MAX_VERTS; j++) {
@@ -84,7 +84,7 @@ public class Graph {
     }
     public int getAdjUnvisitedVertex(int v) {
         for(int j=0; j<nVerts; j++) {
-            if (adjMat[v][j] == 1 && vertexList[j].wasVisited = false) {
+            if (adjMat[v][j] == 1 && vertexList[j].wasVisited == false) {
                 return j;
             }
         }

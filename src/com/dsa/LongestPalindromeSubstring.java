@@ -1,9 +1,69 @@
 package com.dsa;
 
-/**
- * Created by amygeek on 12/7/17.
- */
 public class LongestPalindromeSubstring {
+
+    public String longestPalindrome(String s) {
+        if(s==null || s.length()<=1)
+            return s;
+
+        int len = s.length();
+        int maxLen = 1;
+        boolean [][] dp = new boolean[len][len];
+
+        String longest = null;
+        for(int l=0; l<s.length(); l++){
+            for(int i=0; i<len-l; i++){
+                int j = i+l;
+                if(s.charAt(i)==s.charAt(j) && (j-i<=2||dp[i+1][j-1])){
+                    dp[i][j]=true;
+
+                    if(j-i+1>maxLen){
+                        maxLen = j-i+1;
+                        longest = s.substring(i, j+1);
+                    }
+                }
+            }
+        }
+
+        return longest;
+    }
+
+    public String longestPalindrome2(String s) {
+        if (s.isEmpty()) {
+            return null;
+        }
+
+        if (s.length() == 1) {
+            return s;
+        }
+
+        String longest = s.substring(0, 1);
+        for (int i = 0; i < s.length(); i++) {
+            // get longest palindrome with center of i
+            String tmp = helper(s, i, i);
+            if (tmp.length() > longest.length()) {
+                longest = tmp;
+            }
+
+            // get longest palindrome with center of i, i+1
+            tmp = helper(s, i, i + 1);
+            if (tmp.length() > longest.length()) {
+                longest = tmp;
+            }
+        }
+
+        return longest;
+    }
+
+    // Given a center, either one letter or two letter,
+    // Find longest palindrome
+    public String helper(String s, int begin, int end) {
+        while (begin >= 0 && end <= s.length() - 1 && s.charAt(begin) == s.charAt(end)) {
+            begin--;
+            end++;
+        }
+        return s.substring(begin + 1, end);
+    }
 
     public int longestPalindromeSubstringEasy(char arr[]) {
 
@@ -111,6 +171,38 @@ public class LongestPalindromeSubstring {
             val = T[i]/2;
             if(max < val) {
                 max = val;
+            }
+        }
+        return max;
+    }
+
+    public int longestPalindromeDynamic(char []str){
+        boolean T[][] = new boolean[str.length][str.length];
+
+        for(int i=0; i < T.length; i++){
+            T[i][i] = true;
+        }
+
+        int max = 1;
+        for(int l = 2; l <= str.length; l++){
+            int len = 0;
+            for(int i=0; i < str.length-l+1; i++){
+                int j = i + l-1;
+                len = 0;
+                if(l == 2){
+                    if(str[i] == str[j]){
+                        T[i][j] = true;
+                        len = 2;
+                    }
+                }else{
+                    if(str[i] == str[j] && T[i+1][j-1]){
+                        T[i][j] = true;
+                        len = j -i + 1;
+                    }
+                }
+                if(len > max){
+                    max = len;
+                }
             }
         }
         return max;
