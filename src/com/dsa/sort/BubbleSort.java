@@ -10,15 +10,12 @@ class BubbleSort {
         a[j] = t;
     }
 
-    public static void bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr, int n) {
 
-        int n = arr.length;
-        int temp = 0;
-
-        for (int i=0; i < n; i++) {
-            for (int j=1; j < (n-i); j++) {
-                if(arr[j-1] > arr[j]){
-                    swap(arr, j, j-1);
+        for (int i=0; i < n - 1; i++) {
+            for (int j=0; j < n - 1 - i; j++) {
+                if(arr[j] > arr[j + 1]){
+                    swap(arr, j, j+1);
                 }
 
             }
@@ -26,11 +23,23 @@ class BubbleSort {
 
     }
 
+    public static void bubbleSortRec ( int[] arr, int n) {
+
+        for ( int j=0; j< n-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                swap(arr, j, j+1);
+            }
+        }
+        if ( n - 1 > 1 ) {
+            bubbleSortRec(arr, n - 1);
+        }
+    }
+
     // Driver method to test above
     public static void main(String[] args) {
         int arr[] = {68, 34, 25, 12, 22, 1, 100, 8};
         System.out.println("before: " + Arrays.toString(arr));
-        bubbleSort(arr);
+        bubbleSortRec(arr, arr.length);
         System.out.println("after: " + Arrays.toString(arr));
 
     }

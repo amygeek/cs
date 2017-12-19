@@ -5,66 +5,67 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] list = {300, 32, 67, 76, 23, 200, 58, 85};
+        int[] list = {6,4,8,1,3,5,7};
         System.out.println("before: " + Arrays.toString(list));
-        mergeSort(list);
+        sortIterative(list, 0, list.length - 1 );
         System.out.println("after:  " + Arrays.toString(list));
     }
 
-    // Places the elements of the given array into sorted order
-    // using the merge sort algorithm.
-    // post: array is in sorted (nondecreasing) order
-    public static void mergeSort(int[] array) {
-        if (array.length > 1) {
-            // split array into two halves
-            int[] left = leftHalf(array);
-            int[] right = rightHalf(array);
-
-            // recursively sort the two halves
-            mergeSort(left);
-            mergeSort(right);
-
-            // merge the sorted halves into a sorted whole
-            merge(array, left, right);
-        }
+    public static int min ( int a, int b) {
+        return (a > b) ? b : a;
     }
 
-    // Returns the first half of the given array.
-    public static int[] leftHalf(int[] array) {
-        int size1 = array.length / 2;
-        int[] left = new int[size1];
-        for (int i = 0; i < size1; i++) {
-            left[i] = array[i];
+    public static void sort(int[] a, int low, int high) {
+
+        if(low >= high){
+            return;
         }
-        return left;
+
+        int mid = (low + high) / 2;
+        sort(a, low, mid);
+        sort(a, mid + 1, high);
+
+        merge(a, low, high);
+
     }
 
-    // Returns the second half of the given array.
-    public static int[] rightHalf(int[] array) {
-        int size1 = array.length / 2;
-        int size2 = array.length - size1;
-        int[] right = new int[size2];
-        for (int i = 0; i < size2; i++) {
-            right[i] = array[i + size1];
-        }
-        return right;
-    }
+    public static void sortIterative( int[] a, int low, int high) {
 
-    // Merges the given left and right arrays into the given
-    // result array.  Second, working version.
-    // pre : result is empty; left/right are sorted
-    // post: result contains result of merging sorted lists;
-    public static void merge(int[] result,
-                             int[] left, int[] right) {
-        int i = 0;   // index into left array
-        int j = 0;   // index into right array
+        for (int m=1; m< high - low + 1; m = 2*m) {
 
-        for (int k = 0; k < result.length; k++) {
-            if (j >= right.length || (i < left.length && left[i] <= right[j])) {
-                result[k] = left[i++];    // take from left
-            } else {
-                result[k] = right[j++];   // take from right
+            for (int i = low; i< high; i += 2*m) {
+                int mid = min(i + 2*m - 1, high);
+                merge(a, i, mid);
             }
+        }
+
+    }
+
+    public static void merge( int[] arr, int low, int high) {
+        int mid = (low + high) / 2;
+        int i = low;
+        int j = mid + 1;
+        int k = 0;
+        int [] temp = new int[high - low + 1];
+        while ( i<=mid && j<=high ) {
+
+            if ( arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+            }
+        }
+        while (i<=mid) {
+            temp[k++] = arr[i++];
+        }
+        while ( j<= high ) {
+
+            temp[k++] = arr[j++];
+        }
+
+        i = low;
+        for( k=0; k < temp.length;){
+            arr[i++] = temp[k++];
         }
     }
 }
