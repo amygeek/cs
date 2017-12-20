@@ -1,5 +1,7 @@
 package com.dsa.graph;
 
+import java.util.Date;
+import java.util.Arrays;
 /**
  * Created by amyhu on 12/12/17.
  */
@@ -68,13 +70,14 @@ public class Graph {
 
         while( !theQueue.isEmpty()) {
             int v1 = theQueue.dequeue();
-            int v2 = getAdjUnvisitedVertex(v1);
+            int v2;
 
-            while( v2 != -1) {
-                vertexList[2].wasVisited = true;
+            while ( (v2 = getAdjUnvisitedVertex(v1)) != -1 ) {
+                vertexList[v2].wasVisited = true;
                 displayVertex(v2);
                 theQueue.enqueue(v2);
             }
+
         }
 
         for(int i=0; i<nVerts; i++) {
@@ -98,6 +101,14 @@ public class Graph {
         theGraph.addVertex('C');    //2
         theGraph.addVertex('D');    //3
         theGraph.addVertex('E');    //4
+
+        /*****************
+            A
+           / \
+          B   D
+         /     \
+        C       E
+        ******************/
 
         theGraph.addEdge(0, 1);     //AB
         theGraph.addEdge(1, 2);     //BC
