@@ -213,7 +213,7 @@ public class LongestPalindromeSubstring {
         System.out.println(lps.longestPalindromicSubstringLinear("abba".toCharArray()));
         System.out.println(lps.longestPalindromicSubstringLinear("abbababba".toCharArray()));
         System.out.println(lps.longestPalindromicSubstringLinear("babcbaabcbaccba".toCharArray()));
-        System.out.println(lps.longestPalindromicSubstringLinear("cdbabcbabdab".toCharArray()));
+        System.out.println(lps.longestPalindrome("cdbabcbabdab"));
     }
 
 }
