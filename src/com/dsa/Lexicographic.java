@@ -1,9 +1,7 @@
 package com.dsa;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.Arrays;
 
 public class Lexicographic {
     public static void main(String a[]) {
@@ -21,5 +19,6 @@ public class Lexicographic {
         Collections.sort(list);
         System.out.println("Smallest subString:-" + list.get(0));
         System.out.println("Largest subString:-" + list.get(list.size() - 1));
+        System.out.println("Largest subString:-" + list);
     }
 }
