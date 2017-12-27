@@ -7,10 +7,9 @@ public class InsertionSort {
 
     public static void insertionSort (int[] a, int n) {
 
-        int value, j;
         for (int i = 1; i < n; i++) {
-            value = a[i];
-            j = i;
+            int value = a[i];
+            int j = i;
             while( j > 0 && a[j-1] > value) {
                 a[j] = a[j-1];
                 j--;
