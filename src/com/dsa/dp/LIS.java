@@ -1,8 +1,5 @@
 package com.dsa.dp;
 
-import com.dsa.string.LongestPalindromeSubstring; /**
- * Created by amygeek on 12/4/17.
- */
 public class LIS {
     /**
      * Returns index in T for ceiling of s
@@ -61,7 +58,7 @@ public class LIS {
     public static void main(String args[]){
         //int input[] = {2,5,3,1,2,10,6,7,8};
         int input[] = {3, 4, -1, 5, 8, 2, 3, 12, 7, 9, 10};
-        LongestPalindromeSubstring.LIS lis = new LongestPalindromeSubstring.LIS ();
+        LIS lis = new LIS ();
         System.out.println("Maximum length " + lis.longestIncreasingSubSequence(input));
     }
 }
