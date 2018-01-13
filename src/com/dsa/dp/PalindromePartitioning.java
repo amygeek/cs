@@ -1,4 +1,4 @@
-package com.dsa.array;
+package com.dsa.dp;
 import java.util.Arrays;
 
 // Java Code for Palindrome Partitioning

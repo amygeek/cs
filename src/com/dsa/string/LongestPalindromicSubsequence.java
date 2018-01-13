@@ -1,4 +1,4 @@
-package com.dsa;
+package com.dsa.string;
 
 /**
  * Created by amygeek on 12/7/17.
