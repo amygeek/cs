@@ -8,14 +8,14 @@ K = 4
 N/k = 14/4 = 3
 
 Output will be [3,4] they appear 5, 4 times respectively.
-Naive Approach: Take two for loops , check every ele­ment with all other ele­ments, Time Com­plex­ity -   O(n2) time.
+Naive Approach: Take two for loops , check every element with all other elements, Time Complexity -   O(n2) time.
 
-Bet­ter Approach: Tetris Game tech­nique– O(Nk)
-Cre­ate array etms[] con­tains k-1 objects of class Ele­ments with ele­ment =0 and count = 0.
-So idea is, nav­i­gate all the ele­ments of given array.
-Check if ele­ment exist in etms[] if not, insert it with the count 1 and if exist then increase its count.
-Also check if etms[] gets full when insert­ing an ele­ment, if it is not, fol­low the pre­vi­ous step. If it is full then reduce the count of every exist­ing ele­ment in the etms[]. (Just think of a Tetris game, when row gets full, it gets deleted and size of the Tetris reduced by 1) see the pic­ture below.
-Once all the ele­ments of array gets over, check every ele­ment of etms[] with array and print those ele­ments which has N/K times.
+Better Approach: Tetris Game technique– O(Nk)
+Create array etms[] contains k-1 objects of class Elements with element =0 and count = 0.
+So idea is, navigate all the elements of given array.
+Check if element exist in etms[] if not, insert it with the count 1 and if exist then increase its count.
+Also check if etms[] gets full when inserting an element, if it is not, follow the previous step. If it is full then reduce the count of every existing element in the etms[]. (Just think of a Tetris game, when row gets full, it gets deleted and size of the Tetris reduced by 1) see the picture below.
+Once all the elements of array gets over, check every element of etms[] with array and print those elements which has N/K times.
  */
 class Elements {
     int element;
