@@ -19,22 +19,22 @@ public class MergeSortLinkedList {
         return result;
     }
 
-    public int getLength(Node a) {
+    public int getLength( Node n ) {
         int count = 0;
-        Node h = a;
-        while (h != null) {
+        Node current = n;
+        while (current != null) {
             count++;
-            h = h.next;
+            current = current.next;
         }
         return count;
     }
 
-    public Node mergeSort(Node a) {
-        Node oldHead = a;
+    public Node mergeSort(Node n) {
+        Node oldHead = n;
         // find the length of the linkedlist
-        int mid = getLength(a) / 2;
-        if (a.next == null)
-            return a;
+        int mid = getLength(n) / 2;
+        if (n.next == null)
+            return n;
         // set one pointer to the beginning of the list and another at the next
         // element after mid
         while (mid - 1 > 0) {
@@ -44,7 +44,7 @@ public class MergeSortLinkedList {
         Node newHead = oldHead.next;// make newHead points to the beginning of
         // the second half of the list
         oldHead.next = null;// break the list
-        oldHead = a;// make one pointer points at the beginning of the first
+        oldHead = n;// make one pointer points at the beginning of the first
         // half of the list
         Node t1 = mergeSort(oldHead);//make recursive calls
         Node t2 = mergeSort(newHead);
@@ -61,15 +61,15 @@ public class MergeSortLinkedList {
     }
 
     public static void main(String args[]) {
-        Node a = new Node(9);
-        a.next = new Node(3);
-        a.next.next = new Node(4);
-        a.next.next.next = new Node(2);
-        a.next.next.next.next = new Node(5);
-        a.next.next.next.next.next = new Node(1);
+        Node n = new Node(9);
+        n.next = new Node(3);
+        n.next.next = new Node(4);
+        n.next.next.next = new Node(2);
+        n.next.next.next.next = new Node(5);
+        n.next.next.next.next.next = new Node(1);
         MergeSortLinkedList m = new MergeSortLinkedList();
-        m.display(a);
-        Node x = m.mergeSort(a);
+        m.display(n);
+        Node x = m.mergeSort(n);
         System.out.println("\n Sorted List: ");
         m.display(x);
     }

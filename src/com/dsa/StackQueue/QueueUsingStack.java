@@ -1,64 +1,91 @@
 package com.dsa.StackQueue;
 
 import java.util.Stack;
-/**
- * Created by amyhu on 12/18/17.
- */
 
-public class QueueUsingStack{
+// add item is O(1), remove items is O(n)
+class QueueUsingStack {
 
-    Stack<Integer> stack1 = new Stack<Integer>();
-    Stack<Integer> stack2 = new Stack<Integer>();
+    Stack<Integer> newestStack = new Stack<>(); //act as  back of the Queue
+    Stack<Integer> oldestStack = new Stack<>(); // act as the front of the Queue
 
-    void enqueue(int data) {
-        stack1.push(data);
+    public void push(int x) {  // push into newestStack
+        newestStack.push(x);
+    }
+
+    public int peek() {
+        if (oldestStack.isEmpty()) {
+            moveItems(newestStack, oldestStack);
+        }
+        return oldestStack.peek(); // return the top element in oldestStack
     }
 
     boolean isEmpty() {
-        return stack1.size() + stack2.size() == 0;
+        return newestStack.size() + oldestStack.size() == 0;
     }
 
-    int dequeue() throws Exception {
-        if(isEmpty()) {
-            throw new Exception("queue is empty");
+    public int pop() {
+        if (oldestStack.isEmpty()) {
+            moveItems(newestStack, oldestStack);
         }
-
-        if(stack2.isEmpty()) {
-            while(!stack1.isEmpty()){
-                stack2.push(stack1.pop());
-            }
-        }
-
-        return stack2.pop();
+        return oldestStack.pop(); // return the top element in oldestStack
     }
+
+    public void moveItems(Stack<Integer> newestStack, Stack<Integer> oldestStack) {
+        while (!newestStack.isEmpty()) {
+            oldestStack.push(newestStack.pop()); // move all the elements from newestStack to oldestStack
+        }
+    }
+
+    public static void main(String[] args) {
+        QueueUsingStack q = new QueueUsingStack();
+        q.push(10);
+        q.push(20);
+        q.push(30);
+        System.out.println("POP from Queue " + q.pop());
+
+    }
+
 }
 
-class QueueUsingStack2{
+// add item is O(n), remove items is O(1)
+class QueueUsingStack2 {
 
-    Stack<Integer> stack1 = new Stack<Integer>();
-    Stack<Integer> stack2 = new Stack<Integer>();
+    Stack<Integer> newestStack = new Stack<>(); //act as  back of the Queue
+    Stack<Integer> oldestStack = new Stack<>(); // act as the front of the Queue
 
-    void enqueue(int data) {
-        while(!stack1.isEmpty()) {
-            stack2.push(stack1.pop());
+    public void push(int x) {  // push into newestStack
+        while ( !oldestStack.isEmpty()) {
+            newestStack.push(oldestStack.pop());
         }
+        oldestStack.push(x);  //push the new item to the bottom of oldestStack
 
-        stack1.push(data);
-
-        while(!stack2.isEmpty()) {
-            stack1.push(stack2.pop());
+        while( !newestStack.isEmpty() ) {
+            oldestStack.push(newestStack.pop() );
         }
     }
 
-    boolean isEmpty() {
-        return stack1.size() + stack2.size() == 0;
-    }
+    public int peek() throws Exception {
 
-    int dequeue() throws Exception {
-        if(isEmpty()) {
+        if(oldestStack.isEmpty()) {
             throw new Exception("queue is empty");
         }
-
-        return stack1.pop();
+        return oldestStack.peek(); // return the top element in oldestStack
     }
+
+    public int pop() throws Exception {
+        if(oldestStack.isEmpty()) {
+            throw new Exception("queue is empty");
+        }
+        return oldestStack.pop(); // return the top element in oldestStack
+    }
+
+    public static void main(String[] args) throws Exception {
+        QueueUsingStack2 q = new QueueUsingStack2();
+        q.push(10);
+        q.push(20);
+        q.push(30);
+        System.out.println("POP from Queue " + q.pop());
+
+    }
+
 }
