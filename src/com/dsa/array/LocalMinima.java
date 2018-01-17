@@ -1,7 +1,7 @@
 package com.dsa.array;
 
 /*
- Objective:  Given an array of leteger write an algorithm to find the local minima.
+ Objective:  Given an array of integers write an algorithm to find the local minima.
 
  Local Minima: An element is considered as local minima if it is less than both of its neighbors (if neighbors exist).
 
