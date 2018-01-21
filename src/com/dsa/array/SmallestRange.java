@@ -3,11 +3,11 @@ import java.util.PriorityQueue;
 import java.util.Arrays;
 
 /*
-You have k lists of sorted inte­gers. Find the small­est range that includes at least one num­ber from each of the k lists.
+You have k lists of sorted integers. Find the smallest range that includes at least one number from each of the k lists.
 Time complexity : O(n∗log(m)). Heapification of m elements requires O(log(m)) time.
-This step could be done for all the elements of the given lists in the worst case. Here, nn refers to the total number of elements in all the lists. mm refers to the total number of lists.
+This step could be done for all the elements of the given lists in the worst case. Here, nn refers to the total number of elements in all the lists. m refers to the total number of lists.
 
-Space complexity : O(m). nextnext array of size m is used. A MinHeap with m elements is also used.
+Space complexity : O(m). next array of size m is used. A MinHeap with m elements is also used.
  */
 public class SmallestRange {
 
@@ -17,6 +17,7 @@ public class SmallestRange {
         int[] next = new int[nums.length];
         boolean flag = true;
         PriorityQueue < Integer > min_queue = new PriorityQueue < Integer > ((i, j) -> nums[i][next[i]] - nums[j][next[j]]);
+
         for (int i = 0; i < nums.length; i++) {
             min_queue.offer(i);
             max = Math.max(max, nums[i][0]);

@@ -12,8 +12,7 @@ public class LongestPrefixSequence {
         int curr;
         for (int i = 1; i < arrA.length; i++) {
             curr = 0;
-            while (curr < resultLen && curr < arrA[i].length()
-                    && arrA[0].charAt(curr) == arrA[i].charAt(curr)) {
+            while (curr < resultLen && curr < arrA[i].length() && arrA[0].charAt(curr) == arrA[i].charAt(curr)) {
                 curr++;
             }
             resultLen = curr;

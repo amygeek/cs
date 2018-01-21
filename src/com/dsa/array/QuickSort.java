@@ -16,13 +16,16 @@ public class QuickSort {
         int j = high;
 
         while (i < j) {
-            while (i <= high && arr[i] <= pivot_value) i++;
-            while (arr[j] > pivot_value) j--;
+            while (i <= high && arr[i] <= pivot_value) {
+                i++;
+            }
+            while (arr[j] > pivot_value){
+                j--;
+            }
 
             if (i < j) {
                 swap(arr, i, j);
-            }
-            else {
+            } else {
                 break;
             }
         }

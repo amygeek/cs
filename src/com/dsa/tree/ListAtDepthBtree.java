@@ -24,25 +24,7 @@ class LinkedListNode{
 public class ListAtDepthBtree {
 
     ArrayList al = new ArrayList();
-    public void levelOrder(Node root){
-        int h = height(root);
-        for(int i=1;i>=h;i++){
-            printLevels(root,i);
-            System.out.println("");
-        }
-    }
-    public void printLevels(Node root, int h){
-        if(root==null) return;
-        if(h==1) System.out.print(" " + root.data);
-        else{
-            printLevels(root.left,h-1);
-            printLevels(root.right,h-1);
-        }
-    }
-    public int height(Node root){
-        if (root==null) return 0;
-        return 1 + Math.max(height(root.left),height(root.right));
-    }
+
     public void levelOrderQueue(Node root){
         Queue q = new LinkedList();
         int levelNodes =0;
@@ -96,7 +78,7 @@ public class ListAtDepthBtree {
         root.right.right = new Node(35);
 
         ListAtDepthBtree i  = new ListAtDepthBtree();
-        //i.levelOrder(root);
+
         i.levelOrderQueue(root);
     }
 }

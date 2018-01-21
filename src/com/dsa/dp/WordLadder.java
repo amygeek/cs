@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
 
-
 class Item {
 
     String word;
@@ -58,7 +57,7 @@ public class WordLadder {
                     item.len = current.len + 1;
                     q.add(item);
 
-                    //System.out.print(item.word + " -> ");
+                    System.out.print(item.word + " -> ");
 
                     // Remove adjacent item from dictionary so that this word is not processed again.  This is like marking visited
                     i.remove();
@@ -86,6 +85,9 @@ public class WordLadder {
         dict.add("lot");
         dict.add("log");
         dict.add("cog");
+
+        //System.out.println(dict);
+
         String start = "hit";
         String target = "cog";
 

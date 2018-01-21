@@ -23,6 +23,7 @@ public class nextPermutation {
             i--;
         }
 
+        System.out.println(i);
         if (i >= 0) {
             int j = nums.length - 1;
             while (j >= 0 && nums[j] <= nums[i]) {
@@ -52,14 +53,14 @@ public class nextPermutation {
         nextPermutation p = new  nextPermutation();
         //int[] n = {1,2,3}; //[1,3,2]
         //int[] n = {3,2,1}; //[1,2,3]
-        //int[] n = {1,1,5}; //[1,5,1]
+        int[] n = {1,1,5}; //[1,5,1]
         /*
         1) loop through from the end of array and find the index (index 3 value 4) of the value that is smaller than previous one
-        2) loop through from the end of array and find the index of its value that is less than (index 6 value 5)
+        2) loop through from the end of array and find the index of its value just larger than the current one (index 6 value 5)
         3) swap those two indexes
         4) revert the right side of the array, in the example it is index 3
          */
-        int[] n = {1,5,8,4,7,6,5,3,1}; //[1, 5, 8, 5, 1, 3, 4, 6, 7]
+        //int[] n = {1,5,8,4,7,6,5,3,1}; //[1, 5, 8, 5, 1, 3, 4, 6, 7]
 
 
         p.nextPerm(n);

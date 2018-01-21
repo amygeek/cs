@@ -38,7 +38,7 @@ public class OccurrencesInArray {
     }
     public static void main(String args[]){
         int [] arrA = {2,3,4,5,5,6};
-        int x = 2;
+        int x = 5;
         OccurrencesInArray i = new OccurrencesInArray();
         int r = i.findOccurrences(arrA, x);
         System.out.println("No of Occurrences of number " + x + " is : " + r);

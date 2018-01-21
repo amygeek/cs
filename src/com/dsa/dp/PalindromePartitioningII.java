@@ -4,32 +4,38 @@ import java.util.HashMap;
 
 public class PalindromePartitioningII {
 
-    static HashMap<String,Integer> solutions = new HashMap<String, Integer>();
+    static HashMap<String,Integer> map = new HashMap<String, Integer>();
 
     public int splitDP(String x){
+
         if( x == "" || isPalindrome(x)){
 //			System.out.println(x);
             return 0;
         }else{
+
             int cuts = Integer.MAX_VALUE;
-            for (int i = 1; i <x.length() ; i++) {
-                int leftSolution =0;
-                int rightSolution = 0;
-                String leftPart = x.substring(0,i);
-                String rightPart = x.substring(i,x.length());
-                if(solutions.containsKey(leftPart)){
-                    leftSolution = solutions.get(leftPart);
+
+            for (int i = 1; i < x.length() ; i++) {
+
+                int leftCut =0;
+                int rightCut = 0;
+
+                String leftStr = x.substring(0, i );
+                String rightStr = x.substring(i, x.length());
+                
+                if(map.containsKey(leftStr)){
+                    leftCut = map.get(leftStr);
                 }else{
-                    leftSolution = splitDP(leftPart);
-                    solutions.put(leftPart,leftSolution);
+                    leftCut = splitDP(leftStr);
+                    map.put(leftStr,leftCut);
                 }
-                if(solutions.containsKey(rightPart)){
-                    rightSolution = solutions.get(rightPart);
+                if(map.containsKey(rightStr)){
+                    rightCut = map.get(rightStr);
                 }else{
-                    rightSolution = splitDP(rightPart);
-                    solutions.put(rightPart,rightSolution);
+                    rightCut = splitDP(rightStr);
+                    map.put(rightStr,rightCut);
                 }
-                cuts  = Math.min(1+ leftSolution  + rightSolution,cuts);
+                cuts  = Math.min( 1 + leftCut  + rightCut, cuts);
             }
             return cuts;
         }

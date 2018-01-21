@@ -20,8 +20,14 @@ public class MedianSortedArrays {
         int m = A.length;
         int n = B.length;
         if (m > n) { // to ensure m<=n
-            int[] temp = A; A = B; B = temp;
-            int tmp = m; m = n; n = tmp;
+
+            int[] temp = A;
+            A = B;
+            B = temp;
+
+            int tmp = m;
+            m = n;
+            n = tmp;
         }
         int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
         while (iMin <= iMax) {

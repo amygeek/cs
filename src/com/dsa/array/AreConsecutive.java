@@ -65,6 +65,39 @@ class AreConsecutive {
         }
         return max;
     }
+    /**
+     Time Complexity — O(n).
+
+     Find the Maximum and minimum elements in array (Say the array is arr)
+     Check if array length   = max-min+1
+     Subtract the min from every element of the array.
+     Check if array doesn’t have duplicates
+     Navigate the array.
+     Update the array as for ith index :- arr[arr[i]] = arr[arr[i]]*-1 (if it already not negative).
+     If is already negative, we have duplicates, return false.
+     */
+    public Boolean WihtOutAuxArray(int [] arr, int n){
+        //this method with work if numbers are non negative
+        int max = getMax(arr, n);
+        int min = getMin(arr, n);
+
+        if (max - min + 1 != n) {
+            return false;
+        } 
+        
+        for(int i=0; i<n; i++){
+            arr[i] = arr[i] - min + 1;
+        }
+        for(int i = 0;i<arr.length;i++){
+            int x  = Math.abs(arr[i]);
+            if(arr[x-1] > 0){
+                arr[x-1] = arr[x-1] * -1;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* Driver program to test above functions */
     public static void main(String[] args)

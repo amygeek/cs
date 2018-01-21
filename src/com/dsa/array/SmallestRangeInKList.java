@@ -17,7 +17,7 @@ public class SmallestRangeInKList {
         Heap[0] = new HeapNode(0, -1); // put some junk values at 0th index node
     }
 
-    public int merge(int[][] A, int k, int n) {
+    public int merge(int[][] lists, int k, int n) {
         int nk = n * k;
         int count = 0;
         int[] ptrs = new int[k];
@@ -26,7 +26,7 @@ public class SmallestRangeInKList {
             ptrs[i] = 0;
         }
         for (int i = 0; i < k; i++) {
-            insert(A[i][ptrs[i]], i); // insert the element into heap
+            insert(lists[i][ptrs[i]], i); // insert the element into heap
 
         }
         while (count < nk) {
@@ -39,7 +39,7 @@ public class SmallestRangeInKList {
             }
             ptrs[h.listNo]++; // increase the particular list pointer
             if (ptrs[h.listNo] < n) { // check if list is not burns out
-                insert(A[h.listNo][ptrs[h.listNo]], h.listNo); // insert the
+                insert(lists[h.listNo][ptrs[h.listNo]], h.listNo); // insert the
                 // next element
                 // from the list
             } else {
@@ -115,14 +115,14 @@ public class SmallestRangeInKList {
     }
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        int[][] A = new int[3][];
-        A[0] = new int[] { 3, 10, 15, 24 };
-        A[1] = new int[] { 0, 1, 2, 20 };
-        A[2] = new int[] { 1, 18, 21, 30 };
+        
+        int[][] lists = new int[3][];
+        lists[0] = new int[] { 3, 10, 15, 24 };
+        lists[1] = new int[] { 0, 1, 2, 20 };
+        lists[2] = new int[] { 1, 18, 21, 30 };
 
-        SmallestRangeInKList m = new SmallestRangeInKList(A.length);
-        int rng = m.merge(A, A.length, A[0].length);
+        SmallestRangeInKList m = new SmallestRangeInKList(lists.length);
+        int rng = m.merge(lists, lists.length, lists[0].length);
         System.out.println("Smallest Range is: " + rng + " from " + gMin
                 + " To " + gMax);
     }

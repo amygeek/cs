@@ -24,10 +24,9 @@ public class CheckArrayHasConsecutiveNos {
         }
         for(int i = 0;i<arrA.length;i++){
             int x  = Math.abs(arrA[i]);
-            if(arrA[x-1]>0){
-                arrA[x-1] = arrA[x-1]*-1;
-            }
-            else{
+            if(arrA[x-1] > 0){
+                arrA[x-1] = arrA[x-1] * -1;
+            } else {
                 return false;
             }
         }

@@ -1,5 +1,7 @@
 package com.dsa.dp;
 
+import java.util.Arrays;
+
 /**
  Given a string S and a string T, count the number of distinct subsequences of S which equals T.
 
@@ -9,6 +11,11 @@ package com.dsa.dp;
 
  Here is an example:
  S = "rabbbit", T = "rabbit"
+ ra bbit
+ rab bit
+ rabb it
+
+
 
  Return 3.
 
@@ -83,13 +90,21 @@ public class DistinctSubsequences {
             }
         }
 
+        /*
+        for(int i = 0; i<3; i++) {
+            for(int j=0; j<10; j++){
+                System.out.print(res[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
+         */
         return res[T.length()][S.length()];
     }
 
     public static void main(String[] args) {
+
         int res = distinctSubSeq("acdabefbc", "ab");
 
         System.out.println(res);
-
     }
 }
