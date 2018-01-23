@@ -31,7 +31,7 @@ public class RodCutting {
     }
 
     public static void main(String[] args) {
-        int[] value = { 2, 3, 7, 8, 9 };
+        int[] value = { 2, 3, 7, 8, 10};
         int len = 5;
         System.out.println("Max profit for length is " + len + ": "
                 + profitDP(value, len));

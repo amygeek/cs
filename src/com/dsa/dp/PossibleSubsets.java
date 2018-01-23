@@ -1,10 +1,5 @@
 package com.dsa.dp;
 
-/*
-Loop through i=1 to N.
-Add i to the result and make a recursive call to (N-i).
-Base case: when n becomes 0
- */
 public class PossibleSubsets {
 
     public static void printSubsets(int n, String x){
@@ -15,12 +10,12 @@ public class PossibleSubsets {
             for(int i=1;i<=n;i++){
                 x = x + i;
                 printSubsets(n - i, x);
-                x = x.substring(0,x.length()-1);
+                x = x.substring(0, x.length() - 1);
             }
         }
     }
     public static void main(String[] args) {
-        int n =4;
+        int n =3;
         printSubsets(n,"");
 
     }

@@ -75,24 +75,26 @@ public class SmallestRangeInKList {
         // the heap
         Heap[position - 1] = null; // set the last Node as NULL
         position--; // reduce the position pointer
-        sinkDown(1); // sink down the root to its correct position
+        minHeapify(1); // sink down the root to its correct position
         return min;
     }
 
-    public void sinkDown(int k) {
-        int smallest = k;
-        // check which is smaller child , 2k or 2k+1.
-        if (2 * k < position && Heap[smallest].data > Heap[2 * k].data) {
-            smallest = 2 * k;
-        }
-        if (2 * k + 1 < position && Heap[smallest].data > Heap[2 * k + 1].data) {
-            smallest = 2 * k + 1;
-        }
-        if (smallest != k) { // if any if the child is small, swap
-            swap(k, smallest);
-            sinkDown(smallest); // call recursively
-        }
 
+    public void minHeapify( int i ) {
+        int smallest = i;
+        int l = 2 * i;
+        int r = 2 * i + 1;
+        // check which is smaller child , 2k or 2k+1.
+        if (l < this.position && Heap[i].data > Heap[l].data) {
+            smallest = l;
+        }
+        if (r < this.position && Heap[smallest].data > Heap[r].data) {
+            smallest = r;
+        }
+        if (smallest != i) { // if any if the child is small, swap
+            swap(i, smallest);
+            minHeapify(smallest); // call recursively
+        }
     }
 
     public void swap(int a, int b) {
@@ -104,13 +106,10 @@ public class SmallestRangeInKList {
 
     public void bubbleUp() {
         int pos = position - 1; // last position
-        while (pos > 0 && Heap[pos / 2].data > Heap[pos].data) { // check if its
-            // parent is
-            // greater.
-            HeapNode y = Heap[pos]; // if yes, then swap
-            Heap[pos] = Heap[pos / 2];
-            Heap[pos / 2] = y;
-            pos = pos / 2; // make pos to its parent for next iteration.
+        int p = pos / 2;
+        while (pos > 0 && Heap[p].data > Heap[pos].data) { // check if its parent is greater.
+            swap(p, pos);
+            pos = p; // make pos to its parent for next iteration.
         }
     }
 
@@ -123,8 +122,7 @@ public class SmallestRangeInKList {
 
         SmallestRangeInKList m = new SmallestRangeInKList(lists.length);
         int rng = m.merge(lists, lists.length, lists[0].length);
-        System.out.println("Smallest Range is: " + rng + " from " + gMin
-                + " To " + gMax);
+        System.out.println("Smallest Range is: " + rng + " from " + gMin + " To " + gMax);
     }
 
 }

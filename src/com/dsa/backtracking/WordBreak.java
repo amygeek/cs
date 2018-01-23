@@ -35,12 +35,13 @@ public class WordBreak {
 
     public static void main(String[] args) {
         HashSet<String> set = new HashSet<String>();
-        set.add("hello");
-        set.add("you");
-        set.add("on");
-        set.add("amy");
-
-        String s = "helloamy";
+        set.add("this");
+        set.add("is");
+        set.add("sumit");
+        set.add("jain");
+        set.add("the");
+        set.add("problem");
+        String s = "thisissumitjain";
 
         WordBreak ws = new WordBreak();
 

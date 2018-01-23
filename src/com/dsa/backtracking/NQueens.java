@@ -29,8 +29,7 @@ public class NQueens {
         for (int i = 0; i < x2; i++) {
             //result[i] == y2 => columns are same
             //|i - x2| == |result[i] - y2| => in diagonals.
-            if ((result[i] == y2)
-                    || (Math.abs(i - x2) == Math.abs(result[i] - y2))) {
+            if ((result[i] == y2) || (Math.abs(i - x2) == Math.abs(result[i] - y2))) {
                 return false;
             }
         }
@@ -42,15 +41,14 @@ public class NQueens {
             if (canPlace(x, i)) {
                 result[x] = i; // place the queen at this position.
                 if (x == size - 1) {
-                    System.out.println("Order of " + size + " queens"
-                            + Arrays.toString(result));
+                    System.out.println("Order of " + size + " queens" + Arrays.toString(result));
                 }
                 placeQueens(x + 1, size);
             }
         }
     }
     public static void main(String[] args) {
-        int n = 6;
+        int n = 4;
         result = new int[n];
         NQueens i = new NQueens();
         i.placeQueens(0, n);

@@ -2,7 +2,7 @@ package com.dsa.misc;
 
 public class DecimalOctalPalindrome {
 
-    public String DecimalTooctal(int num) {
+    public String DecimalToOctal(int num) {
         String oct = "";
         while (num > 0) {
             int x = num % 8;
@@ -29,7 +29,7 @@ public class DecimalOctalPalindrome {
         for (int i = start; i <= end; i++) {
             String decimal = String.valueOf(i);
             if (isPalindrome(decimal)) {
-                String oct = DecimalTooctal(i);
+                String oct = DecimalToOctal(i);
                 if (isPalindrome(oct)) {
                     System.out.print(oct + " ");
                 }
@@ -39,7 +39,7 @@ public class DecimalOctalPalindrome {
 
     public static void main(String[] args) {
         DecimalOctalPalindrome d = new DecimalOctalPalindrome();
-        d.findBothPalindrome(1, 2000);
+        d.findBothPalindrome(1, 1000);
     }
 
 }

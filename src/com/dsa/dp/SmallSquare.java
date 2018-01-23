@@ -9,8 +9,7 @@ public class SmallSquare {
         }
         int min = solveRecursively(n - 1 * 1, options);
         for (int i = 2; i <= options; i++) {
-            if (n >=
-                    i * i) {
+            if (n >= i * i) {
                 min = Math.min(min, solveRecursively(n - i * i, options));
             }
         }

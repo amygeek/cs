@@ -44,8 +44,10 @@ public class MergeKSortedArrays {
         int nk = n * k;
         result = new int[nk];
         int count = 0;
-        int[] ptrs = new int[k];
-        // create index pointer for every list.
+
+        int[] ptrs = new int[k];  // create index pointer for every list.
+
+
         for (int i = 0; i < ptrs.length; i++) {
             ptrs[i] = 0;
         }

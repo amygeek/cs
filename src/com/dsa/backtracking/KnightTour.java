@@ -39,33 +39,27 @@ public class KnightTour {
         // try to solve the rest of the problem recursively
 
         // go down and right
-        if (canMove(row + 2, column + 1, N)
-                && findPath(row + 2, column + 1, index + 1, N)) {
+        if (canMove(row + 2, column + 1, N) && findPath(row + 2, column + 1, index + 1, N)) {
             return true;
         }
         // go right and down
-        if (canMove(row + 1, column + 2, N)
-                && findPath(row + 1, column + 2, index + 1, N)) {
+        if (canMove(row + 1, column + 2, N) && findPath(row + 1, column + 2, index + 1, N)) {
             return true;
         }
         // go right and up
-        if (canMove(row - 1, column + 2, N)
-                && findPath(row - 1, column + 2, index + 1, N)) {
+        if (canMove(row - 1, column + 2, N) && findPath(row - 1, column + 2, index + 1, N)) {
             return true;
         }
         // go up and right
-        if (canMove(row - 2, column + 1, N)
-                && findPath(row - 2, column + 1, index + 1, N)) {
+        if (canMove(row - 2, column + 1, N) && findPath(row - 2, column + 1, index + 1, N)) {
             return true;
         }
         // go up and left
-        if (canMove(row - 2, column - 1, N)
-                && findPath(row - 2, column - 1, index + 1, N)) {
+        if (canMove(row - 2, column - 1, N) && findPath(row - 2, column - 1, index + 1, N)) {
             return true;
         }
         // go left and up
-        if (canMove(row - 1, column - 2, N)
-                && findPath(row - 1, column - 2, index + 1, N)) {
+        if (canMove(row - 1, column - 2, N) && findPath(row - 1, column - 2, index + 1, N)) {
             return true;
         }
         // go left and down
@@ -74,8 +68,7 @@ public class KnightTour {
             return true;
         }
         // go down and left
-        if (canMove(row + 2, column - 1, N)
-                && findPath(row + 2, column - 1, index + 1, N)) {
+        if (canMove(row + 2, column - 1, N) && findPath(row + 2, column - 1, index + 1, N)) {
             return true;
         }
         // if we are here means nothing has worked , backtrack
@@ -97,6 +90,7 @@ public class KnightTour {
         for (int i = 0; i < solution.length; i++) {
             for (int j = 0; j < solution.length; j++) {
                 System.out.print("   " + twodigits.format(solution[i][j]));
+                //System.out.print("   " + solution[i][j]);
             }
             System.out.println();
         }

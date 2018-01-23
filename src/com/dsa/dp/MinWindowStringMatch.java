@@ -3,7 +3,7 @@ package com.dsa.dp;
 // Java program to find smallest window containing
 // all characters of a pattern.
 
-public class MinWindow {
+public class MinWindowStringMatch {
 
     static final int noOfChars = 256;
 
@@ -11,12 +11,12 @@ public class MinWindow {
     // all characters of 't'
     static String findSubString(String s, String t)
     {
-        int len1 = s.length();
-        int len2 = t.length();
+        int sLen = s.length();
+        int tLen = t.length();
 
         // check if string's length is less than pattern's
         // length. If yes then no such window can exist
-        if (len1 < len2)
+        if (sLen < tLen)
         {
             System.out.println("No such window exists");
             return "";
@@ -26,14 +26,14 @@ public class MinWindow {
         int hashStrS[] = new int[noOfChars];
 
         // store occurrence ofs characters of pattern
-        for (int i = 0; i < len2; i++)
+        for (int i = 0; i < tLen; i++)
             hashStrT[t.charAt(i)]++;
 
         int start = 0, start_index = -1, minLen = Integer.MAX_VALUE;
 
         // start traversing the string
         int count = 0;  // count of characters
-        for (int j = 0; j < len1 ; j++)
+        for (int j = 0; j < sLen ; j++)
         {
             // count occurrence of characters of string
             hashStrS[s.charAt(j)]++;
@@ -46,7 +46,7 @@ public class MinWindow {
                
 
             // if all the characters are matched
-            if (count == len2) {
+            if (count == tLen) {
                 // Try to minimize the window i.e., check if
                 // any character is occurring more no. of times
                 // than its occurrence  in pattern, if yes
@@ -85,11 +85,11 @@ public class MinWindow {
     // Driver Method
     public static void main(String[] args)
     {
-//        String s = "this is a test string";
-//        String t = "tist";
+        String s = "this is a test string";
+        String t = "tist";
 
-        String s = "ADOBECODEBANC";   //BANC
-        String t =  "ABC";
+//        String s = "ADOBECODEBANC";   //BANC
+//        String t =  "ABC";
 
         System.out.print("Smallest window is : " + findSubString(s, t));
     }

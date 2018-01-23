@@ -54,6 +54,7 @@ public class WellOrderedPermutations {
         boolean wellFormed = true;
         for (int i = 0; i < A.length - 1; i++) {
             if (Character.toLowerCase(A[i]) > Character.toLowerCase(A[i + 1])) {
+                //System.out.println(A);
                 wellFormed = false;
                 break;
             }

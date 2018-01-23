@@ -3,7 +3,7 @@ package com.dsa.tree;
 /*
 Given a binary tree, find the diameter of it.
 
-Diameter of tree is defined as A longest path or route between any two nodes in a tree. 
+diameter of tree is defined as A longest path or route between any two nodes in a tree. 
 The path may or may not for through the root.
 
 Time Complexity O(N).
@@ -17,26 +17,27 @@ public class DiameterOfTree {
     // node in same iteration
     // every Node will return 2 values, diameter and height wrt to the
     // particular node
-    public int[] Diameter(Node root) {
-        int DandH[] = { 0, 0 }; // initialize the height (DandH[0]) and diameter
-        // as 0 (DandH[1])
+    public int[] diameter(Node root) {
+        int res[] = { 0, 0 }; // initialize the height (res[0]) and diameter
+        // as 0 (res[1])
         if (root != null) {
 
-            int[] leftResult = Diameter(root.left);
-            int[] rightResult = Diameter(root.right);
+            int[] leftResult = diameter(root.left);
+            int[] rightResult = diameter(root.right);
 
             int height = Math.max(leftResult[0], rightResult[0]) + 1;
+
             int leftDiameter = leftResult[1];
             int rightDiameter = rightResult[1];
             int rootDiameter = leftResult[0] + rightResult[0] + 1;
-            int finalDiameter = getMax(leftDiameter, rightDiameter,
-                    rootDiameter);
-            // prepare the DandH[]
-            DandH[0] = height; // update the height
-            DandH[1] = finalDiameter;
-            return DandH;
+
+            int finalDiameter = getMax(leftDiameter, rightDiameter, rootDiameter);
+
+            res[0] = height; // update the height
+            res[1] = finalDiameter;
+            return res;
         }
-        return DandH;
+        return res;
     }
 
     public int getMax(int a, int b, int c) {
@@ -49,10 +50,10 @@ public class DiameterOfTree {
            2     3
          /  \
         4   5
-            /    /
-             8   6
-                \
-                7
+       /    /
+      8    6
+            \
+            7
      */
     public static void main(String[] args) {
         Node root = new Node(1);
@@ -65,7 +66,7 @@ public class DiameterOfTree {
         root.left.left.left = new Node(8);
 
         DiameterOfTree d = new DiameterOfTree();
-        System.out.println("Diameter of Tree " + d.Diameter(root)[1]);
+        System.out.println("diameter of Tree " + d.diameter(root)[1]);
     }
 }
 
