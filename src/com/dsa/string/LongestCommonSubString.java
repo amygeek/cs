@@ -5,7 +5,7 @@ package com.dsa.string;
  * find the longest common substring in O(m*n) time. The idea is to find length of the longest common suffix
  * for all substrings of both strings and store these lengths in a table.
  */
-public class LongestCommonSubSequence
+public class LongestCommonSubString
 {
     /*
        Returns length of longest common substring

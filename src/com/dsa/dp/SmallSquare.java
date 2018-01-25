@@ -1,5 +1,24 @@
 package com.dsa.dp;
 
+/*
+Minimum Numbers are Required Whose Square Sum is Equal To a Given Number
+Given a number, Write an algorithm to find out minimum numbers required whose square is equal to the number.
+Given Number: 12
+
+Numbers whose sum of squares are equal to 12.
+
+12+12+12+12+12+12+12+12+12+12+12+12 = 12
+
+22+22+22 = 12
+
+32+12+12+12 = 12
+
+Answer: 3 numbers (2,2,2)
+
+this problem has been reduced to “Minimum Coin Change Problem” with some modification. In “Minimum Coin Change Problem“,
+the minimum numbers of coins are required to make change of a given amount,
+here minimum numbers required whose square sum is equal to given number.
+ */
 public class SmallSquare {
 
     //solve using recursion
