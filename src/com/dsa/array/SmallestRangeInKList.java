@@ -84,16 +84,17 @@ public class SmallestRangeInKList {
         int smallest = i;
         int l = 2 * i;
         int r = 2 * i + 1;
+
         // check which is smaller child , 2k or 2k+1.
-        if (l < this.position && Heap[i].data > Heap[l].data) {
+        if (l < this.position && Heap[l].data < Heap[i].data) {
             smallest = l;
         }
-        if (r < this.position && Heap[smallest].data > Heap[r].data) {
+        if (r < this.position && Heap[r].data< Heap[smallest].data ) {
             smallest = r;
         }
         if (smallest != i) { // if any if the child is small, swap
-            swap(i, smallest);
-            minHeapify(smallest); // call recursively
+            this.swap(i, smallest);
+            this.minHeapify(smallest); // call recursively
         }
     }
 

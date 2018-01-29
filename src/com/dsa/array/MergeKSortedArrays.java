@@ -88,24 +88,26 @@ public class MergeKSortedArrays {
         Heap[1] = Heap[position - 1]; // replace the root with the last element in the heap
         Heap[position - 1] = null; // set the last Node as NULL
         position--; // reduce the position pointer
-        sinkDown(1); // sink down the root to its correct position
+        minHeapify(1); // sink down the root to its correct position
         return min;
     }
 
-    public void sinkDown(int k) {
-        int smallest = k;
-        // check which is smaller child , 2k or 2k+1.
-        if (2 * k < position && Heap[smallest].data > Heap[2 * k].data) {
-            smallest = 2 * k;
-        }
-        if (2 * k + 1 < position && Heap[smallest].data > Heap[2 * k + 1].data) {
-            smallest = 2 * k + 1;
-        }
-        if (smallest != k) { // if any if the child is small, swap
-            swap(k, smallest);
-            sinkDown(smallest); // call recursively
-        }
+    public void minHeapify( int i ) {
+        int smallest = i;
+        int l = 2 * i;
+        int r = 2 * i + 1;
 
+        // check which is smaller child , 2k or 2k+1.
+        if (l < this.position && Heap[l].data < Heap[i].data) {
+            smallest = l;
+        }
+        if (r < this.position && Heap[r].data< Heap[smallest].data ) {
+            smallest = r;
+        }
+        if (smallest != i) { // if any if the child is small, swap
+            this.swap(i, smallest);
+            this.minHeapify(smallest); // call recursively
+        }
     }
 
     public void swap(int a, int b) {
