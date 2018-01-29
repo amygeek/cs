@@ -1,7 +1,7 @@
 package com.dsa.array;
 
 
-public class NumberOf2s {
+public class CountNoOf2s {
     public static int count2sInRangeAtDigit(int number, int d) {
         int powerOf10 = (int) Math.pow(10, d);
         int nextPowerOf10 = powerOf10 * 10;
