@@ -63,8 +63,8 @@ public class MedianBinary {
     }
 
     public float getMedian(int [] x, int start, int end){
+
         int size = end - start + 1;
-        double median;
 
         if(size % 2 == 0 ){
             float m = x[start + ( size / 2 )];
