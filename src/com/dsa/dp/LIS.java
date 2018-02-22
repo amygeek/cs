@@ -97,7 +97,7 @@ public class LIS {
     }
 
     public static void main(String args[]){
-        int input[] = {2,5,3,1,2,10,6,7,8};
+        int input[] = {10, 22, 9, 33, 21, 50, 41, 60, 80};
         //int input[] = {1,6,10,4,7,9,5};
         LIS lis = new LIS ();
         System.out.println("Maximum length " + lis.longestIncreasingSubSequence(input));

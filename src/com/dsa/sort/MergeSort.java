@@ -64,8 +64,8 @@ public class MergeSort {
         }
 
         i = low;
-        for( k=0; k < temp.length;){
-            arr[i++] = temp[k++];
+        for( k=0; k < temp.length; k++){
+            arr[i++] = temp[k];
         }
     }
 }
