@@ -42,8 +42,7 @@ public class WordMatrix {
         return false;
     }
 
-    public boolean search(char[][] matrix, String word, int row, int col,
-                          int index, int N) {
+    public boolean search(char[][] matrix, String word, int row, int col, int index, int N) {
 
         // check if current cell not already used or character in it is not not
 
@@ -61,39 +60,31 @@ public class WordMatrix {
         solution[row][col] = path++;
         // check if cell is already used
 
-        if (row + 1 < N && search(matrix, word, row + 1, col, index + 1, N)) { // go
-            // down
+        if (row + 1 < N && search(matrix, word, row + 1, col, index + 1, N)) { // go down
             return true;
         }
-        if (row - 1 >= 0 && search(matrix, word, row - 1, col, index + 1, N)) { // go
-            // up
+        if (row - 1 >= 0 && search(matrix, word, row - 1, col, index + 1, N)) { // go up
             return true;
         }
-        if (col + 1 < N && search(matrix, word, row, col + 1, index + 1, N)) { // go
-            // right
+        if (col + 1 < N && search(matrix, word, row, col + 1, index + 1, N)) { // go right
             return true;
         }
-        if (col - 1 >= 0 && search(matrix, word, row, col - 1, index + 1, N)) { // go
-            // left
+        if (col - 1 >= 0 && search(matrix, word, row, col - 1, index + 1, N)) { // go left
             return true;
         }
-        if (row - 1 >= 0 && col + 1 < N
-                && search(matrix, word, row - 1, col + 1, index + 1, N)) {
-            // go diagonally up right
+        if (row - 1 >= 0 && col + 1 < N && search(matrix, word, row - 1, col + 1, index + 1, N)) {  // go diagonally up right
+
             return true;
         }
-        if (row - 1 >= 0 && col - 1 >= 0
-                && search(matrix, word, row - 1, col - 1, index + 1, N)) {
-            // go diagonally up left
+        if (row - 1 >= 0 && col - 1 >= 0 && search(matrix, word, row - 1, col - 1, index + 1, N)) { // go diagonally up left
+
             return true;
         }
-        if (row + 1 < N && col - 1 >= 0
-                && search(matrix, word, row + 1, col - 1, index + 1, N)) {
+        if (row + 1 < N && col - 1 >= 0 && search(matrix, word, row + 1, col - 1, index + 1, N)) {
             // go diagonally down left
             return true;
         }
-        if (row + 1 < N && col + 1 < N
-                && search(matrix, word, row + 1, col + 1, index + 1, N)) {
+        if (row + 1 < N && col + 1 < N && search(matrix, word, row + 1, col + 1, index + 1, N)) {
             // go diagonally down right
             return true;
         }
@@ -114,9 +105,12 @@ public class WordMatrix {
     }
 
     public static void main(String[] args) {
-        char[][] matrix = { { 't', 'z', 'x', 'c', 'd' },
-                { 'a', 'h', 'n', 'z', 'x' }, { 'h', 'w', 'o', 'i', 'o' },
-                { 'o', 'r', 'n', 'r', 'n' }, { 'a', 'b', 'r', 'i', 'n' } };
+        char[][] matrix = {
+                { 't', 'z', 'x', 'c', 'd' },
+                { 'a', 'h', 'n', 'z', 'x' },
+                { 'h', 'w', 'o', 'i', 'o' },
+                { 'o', 'r', 'n', 'r', 'n' },
+                { 'a', 'b', 'r', 'i', 'n' } };
         WordMatrix w = new WordMatrix(matrix.length);
         if (w.searchWord(matrix, "horizon")) {
             w.print();
