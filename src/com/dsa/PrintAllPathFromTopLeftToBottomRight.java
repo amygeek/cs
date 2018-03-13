@@ -23,9 +23,11 @@ public class PrintAllPathFromTopLeftToBottomRight {
     }
 
     public static void main(String args[]){
-        PrintAllPathFromTopLeftToBottomRight pam = new PrintAllPathFromTopLeftToBottomRight();
-        int arr[][] = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        PrintAllPathFromTopLeftToBottomRight path = new PrintAllPathFromTopLeftToBottomRight();
+        int arr[][] = { {1,2,3,4},
+                        {5,6,7,8},
+                        {9,10,11,12}};
         int result[] = new int[arr.length + arr[0].length-1];
-        pam.print(arr, 0, 0, result,0);
+        path.print(arr, 0, 0, result,0);
     }
 }

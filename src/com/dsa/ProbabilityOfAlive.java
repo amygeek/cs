@@ -22,6 +22,8 @@ class ProbabilityOfAlive
         sb.append(step + ".");
         String key = sb.toString();
 
+        System.out.println(key);
+
         if (map.containsKey(key)) {
             return map.get(key);
         }
@@ -44,10 +46,10 @@ class ProbabilityOfAlive
     }
 
     public static void main(String[] args) {
-        System.out.println("probability1 = " + probabilityOfAlive(0, 0, 1));
+//        System.out.println("probability1 = " + probabilityOfAlive(0, 0, 1));
         System.out.println("probability2 = " + probabilityOfAlive(0, 0, 2));
-        System.out.println("probability3 = " + probabilityOfAlive(0, 0, 3));
-        System.out.println("probability4 = " + probabilityOfAlive(1, 1, 3));
+//        System.out.println("probability3 = " + probabilityOfAlive(0, 0, 3));
+//        System.out.println("probability4 = " + probabilityOfAlive(1, 1, 3));
 
     }
 }

@@ -105,6 +105,13 @@ public class WordMatrix {
     }
 
     public static void main(String[] args) {
+        /*
+        0 0 0 0 0
+        0 1 0 5 0
+        0 0 2 4 6
+        0 0 0 3 7
+        0 0 0 0 0
+         */
         char[][] matrix = {
                 { 't', 'z', 'x', 'c', 'd' },
                 { 'a', 'h', 'n', 'z', 'x' },
